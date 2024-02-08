@@ -1,0 +1,229 @@
+{
+    :profiles {
+        :Default {
+            :default true
+            :alone 300
+            :held 500
+            :delay 100
+            :sim 50
+        }
+    }
+
+    :devices {
+        :internal_keyboard [
+            {:is_built_in_keyboard true}
+        ]
+    }
+
+    :simlayers {
+        :layer_1 {:key :a :condi :internal_keyboard}
+        :layer_2_1 {:key :f :condi :internal_keyboard}
+        :layer_2_2 {:key :semicolon :condi :internal_keyboard}
+    }
+ 
+    :main [
+        {
+            :des "caps_lock == Hyper / ESC"
+            :rules [
+                [:##caps_lock :!CTOleft_shift nil {:alone :escape}]
+            ]
+        }
+        {
+            :des "left_control + h / l == left_control + left_arrow / right_arrow"
+            :rules [
+                [:!Th :!Tleft_arrow]
+                [:!Tl :!Tright_arrow]
+            ]
+        }
+        {
+            :des "right_shift + delete_or_backspace == left_shift + hyphen"
+            :rules [
+                [:!Rdelete_or_backspace :!Shyphen]
+            ]
+        }
+        {
+            :des "Hyper + h / j / k / l == left_arrow / down_arrow / up_arrow / right_arrow"
+            :rules [
+                [:!CTOSh :left_arrow]
+                [:!CTOSj :down_arrow]   
+                [:!CTOSk :up_arrow]
+                [:!CTOSl :right_arrow]
+            ]
+        }
+        {
+            :des "Hyper + u / p == left_command + left_arrow / right_arrow"
+            :rules [
+                [:!CTOSu :!Cleft_arrow]
+                [:!CTOSp :!Cright_arrow]
+            ]
+        }
+        {
+            :des "Hyper + i / o == left_option + left_arrow / right_arrow"
+            :rules [
+                [:!CTOSi :!Oleft_arrow]
+                [:!CTOSo :!Oright_arrow]
+            ]
+        }
+        {
+            :des "Hyper + m / slash == left_command + left_shift + left_arrow / right_arrow"
+            :rules [
+                [:!CTOSm :!CSleft_arrow]
+                [:!CTOSslash :!CSright_arrow]
+            ]
+        }
+        {
+            :des "Hyper + comma / period == left_shift + left_option + left arrow / right_arrow"
+            :rules [
+                [:!CTOScomma :!SOleft_arrow]
+                [:!CTOSperiod :!SOright_arrow]
+            ]
+        }
+        {
+            :des "Hyper + delete_or_backspace == left_control + left_command + q"
+            :rules [
+                [:!CTOSdelete_or_backspace :!TCq]
+            ]
+        }
+        {
+            :des "[internal_keyboard] layer_1 -> Numbers" 
+            :rules [
+                :layer_1
+                [:##u :1]
+                [:##i :2]
+                [:##o :3]
+                [:##j :4]
+                [:##k :5]
+                [:##l :6]
+                [:##m :7]
+                [:##comma :8]
+                [:##period :9]
+                [:##h :0]
+                [:##slash :keypad_period]
+                [:##right_command :keypad_plus]
+                [:##right_option :hyphen]
+                [:##spacebar :equal_sign]
+            ]
+        }
+        {
+            :des "[internal_keyboard] layer_2 -> Symbols + Shortcuts"
+            :rules [
+                :layer_2_1
+                [:##tab :!Sgrave_accent_and_tilde]
+                [:##q :!S1]
+                [:##w :!S2]
+                [:##e :!S3]
+                [:##r :!S4]
+                [:##t :!S5]
+                [:##y :!S6]
+                [:##u :!S7]
+                [:##i :!S8]
+                [:##o :!S9]
+                [:##p :!S0]
+                [:##open_bracket :hyphen]
+                [:##j :!Sopen_bracket]
+                [:##k :open_bracket]
+                [:##l :close_bracket]
+                [:##semicolon :!Sclose_bracket]
+                [:##quote :keypad_plus]
+                [:##m :!CSopen_bracket]
+                [:##comma :!Copen_bracket]
+                [:##period :!Cclose_bracket]
+                [:##slash :!CSclose_bracket]
+                [:##right_shift :equal_sign]
+                [:##right_command :!Sbackslash]
+
+                :layer_2_2
+                [:##tab :!Sgrave_accent_and_tilde]
+                [:##q :!S1]
+                [:##w :!S2]
+                [:##e :!S3]
+                [:##r :!S4]
+                [:##t :!S5]
+                [:##y :!S6]
+                [:##u :!S7]
+                [:##i :!S8]
+                [:##o :!S9]
+                [:##p :!S0]
+                [:##caps_lock :grave_accent_and_tilde]
+                [:##right_command :!Sbackslash]
+            ]
+        }
+        {
+            :des "[internal_keyboard] left_shift == right_shift"
+            :rules [
+                :internal_keyboard
+                [:left_shift :right_shift]
+            ]
+        }
+        {
+            :des "[internal_keyboard] quote == return_or_enter"
+            :rules [
+                :internal_keyboard
+                [:quote :return_or_enter]
+                [:!CTOSquote :!CTOSreturn_or_enter]
+                [:!Rquote :!Rreturn_or_enter]
+                [:!Cquote :!Creturn_or_enter]
+            ]
+        }
+        {
+            :des "[internal_keyboard] right_command == backslash"
+            :rules [
+                :internal_keyboard
+                [:right_command :backslash]
+            ]
+        }
+        {
+            :des "[internal_keyboard] open_bracket == delete_or_backspace"
+            :rules [
+                :internal_keyboard
+                [:open_bracket :delete_or_backspace]
+                [:!Ropen_bracket :!Shyphen]
+                [:!CTOSopen_bracket :!TCq]
+            ]
+        }
+        {
+            :des "[internal_keyboard] right_shift == quote"
+            :rules [
+                :internal_keyboard
+                [:right_shift :quote]
+                [:!Rright_shift :!Squote]
+            ]
+        }
+        {
+            :des "[internal_keyboard] Disable unused keys"
+            :rules [
+                :internal_keyboard
+                [:escape :vk_none]
+                [:f1 :vk_none]
+                [:f2 :vk_none]
+                [:f3 :vk_none]
+                [:f4 :vk_none]
+                [:f5 :vk_none]
+                [:f6 :vk_none]
+                [:f7 :vk_none]
+                [:f8 :vk_none]
+                [:f9 :vk_none]
+                [:f10 :vk_none]
+                [:f11 :vk_none]
+                [:f12 :vk_none]
+                [:grave_accent_and_tilde :vk_none]
+                [:1 :vk_none]
+                [:2 :vk_none]
+                [:3 :vk_none]
+                [:4 :vk_none]
+                [:5 :vk_none]
+                [:6 :vk_none]
+                [:7 :vk_none]
+                [:8 :vk_none]
+                [:9 :vk_none]
+                [:0 :vk_none]
+                [:hyphen :vk_none]
+                [:equal_sign :vk_none]
+                [:delete_or_backspace :vk_none]
+                [:close_bracket :vk_none]
+                [:backslash :vk_none]
+                [:return_or_enter :vk_none]
+            ]
+        }
+    ]
+}
