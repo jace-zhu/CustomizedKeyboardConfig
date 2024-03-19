@@ -177,6 +177,7 @@
             :rules [
                 :internal_keyboard
                 [:open_bracket :delete_or_backspace]
+                [:!Copen_bracket :!Cdelete_or_backspace]
                 [:!Ropen_bracket :!Shyphen]
                 [:!CTOSopen_bracket :!TCq]
             ]
