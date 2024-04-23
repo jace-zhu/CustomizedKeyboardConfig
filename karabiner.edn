@@ -163,6 +163,7 @@
                 [:!CTOSquote :!CTOSreturn_or_enter]
                 [:!Rquote :!Rreturn_or_enter]
                 [:!Cquote :!Creturn_or_enter]
+                [:!TOquote :!TOreturn_or_enter]
             ]
         }
         {
