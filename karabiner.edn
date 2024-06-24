@@ -85,6 +85,12 @@
             ]
         }
         {
+            :des "[internal_keyboard] eject == left_control + left_command + q"
+            :rules [
+                [:##eject :!TCq]
+            ]
+        }
+        {
             :des "[internal_keyboard] layer_1 -> Numbers" 
             :rules [
                 :layer_1
