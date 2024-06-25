@@ -91,6 +91,12 @@
             ]
         }
         {
+            :des "[internal_keyboard] F12 == left_control + left_command + q"
+            :rules [
+                [:##f12 :!TCq]
+            ]
+        }
+        {
             :des "[internal_keyboard] layer_1 -> Numbers" 
             :rules [
                 :layer_1
@@ -214,7 +220,6 @@
                 [:f9 :vk_none]
                 [:f10 :vk_none]
                 [:f11 :vk_none]
-                [:f12 :vk_none]
                 [:grave_accent_and_tilde :vk_none]
                 [:1 :vk_none]
                 [:2 :vk_none]
