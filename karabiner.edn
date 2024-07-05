@@ -87,12 +87,14 @@
         {
             :des "[internal_keyboard] eject == left_control + left_command + q"
             :rules [
+                :internal_keyboard
                 [:##eject :!TCq]
             ]
         }
         {
             :des "[internal_keyboard] F12 == left_control + left_command + q"
             :rules [
+                :internal_keyboard
                 [:##f12 :!TCq]
             ]
         }
