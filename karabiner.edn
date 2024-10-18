@@ -99,6 +99,13 @@
             ]
         }
         {
+            :des "[internal_keyboard] delete_forward == left_control + left_command + q"
+            :rules [
+                :internal_keyboard
+                [:delete_forward :!TCq]
+            ]
+        }
+        {
             :des "[internal_keyboard] layer_1 -> Numbers" 
             :rules [
                 :layer_1
