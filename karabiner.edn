@@ -65,6 +65,13 @@
             ]
         }
         {
+            :des "Hyper + g / semicolon == left_shift + up_arrow / down_arrow"
+            :rules [
+                [:!CTOSg :!Sup_arrow]
+                [:!CTOSsemicolon :!Sdown_arrow]
+            ]
+        }
+        {
             :des "Hyper + m / slash == left_command + left_shift + left_arrow / right_arrow"
             :rules [
                 [:!CTOSm :!CSleft_arrow]
