@@ -3,9 +3,9 @@
         :Default {
             :default true
             :alone 300
-            :held 500
+            :held 900
             :delay 100
-            :sim 50
+            :sim 80
         }
     }
 
