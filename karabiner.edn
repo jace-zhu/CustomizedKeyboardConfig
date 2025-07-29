@@ -2,47 +2,42 @@
     :profiles {
         :Default {
             :default true
-            :alone 300
-            :held 900
-            :delay 100
-            :sim 80
+            :alone 150
+            :held 150
+            :delay 200
+            :sim 30
         }
     }
 
-    :devices {
-        :internal_keyboard [
-            {:is_built_in_keyboard true}
-        ]
-    }
+    :devices {}
 
     :simlayers {
-        :layer_1 {:key :a :condi :internal_keyboard}
-        :layer_2_1 {:key :f :condi :internal_keyboard}
-        :layer_2_2 {:key :semicolon :condi :internal_keyboard}
+        :layer_1 {:key :a}
+        :layer_2_1 {:key :f}
+        :layer_2_2 {:key :semicolon}
     }
  
     :main [
         {
-            :des "caps_lock == Hyper / ESC"
+            :des "caps_lock -> hyper (hold) / escape (tap)"
             :rules [
                 [:##caps_lock :!CTOleft_shift nil {:alone :escape}]
             ]
         }
         {
-            :des "left_control + h / l == left_control + left_arrow / right_arrow"
+            :des "left_control -> hyper (hold) / escape (tap)"
             :rules [
-                [:!Th :!Tleft_arrow]
-                [:!Tl :!Tright_arrow]
+                [:##left_control :!CTOleft_shift nil {:alone :escape}]
             ]
         }
         {
-            :des "right_shift + delete_or_backspace == left_shift + hyphen"
+            :des "right_shift + backspace -> underscore(_)"
             :rules [
                 [:!Rdelete_or_backspace :!Shyphen]
             ]
         }
         {
-            :des "Hyper + h / j / k / l == left_arrow / down_arrow / up_arrow / right_arrow"
+            :des "hyper + h / j / k / l -> arrows (left / down / up / right)"
             :rules [
                 [:!CTOSh :left_arrow]
                 [:!CTOSj :down_arrow]   
@@ -51,69 +46,72 @@
             ]
         }
         {
-            :des "Hyper + u / p == left_command + left_arrow / right_arrow"
+            :des "hyper + u / p -> move to begin / end of line"
             :rules [
                 [:!CTOSu :!Cleft_arrow]
                 [:!CTOSp :!Cright_arrow]
             ]
         }
         {
-            :des "Hyper + i / o == left_option + left_arrow / right_arrow"
+            :des "hyper + i / o -> move by word (left / right)"
             :rules [
                 [:!CTOSi :!Oleft_arrow]
                 [:!CTOSo :!Oright_arrow]
             ]
         }
         {
-            :des "Hyper + g / semicolon == left_shift + up_arrow / down_arrow"
+            :des "hyper + g / semicolon -> select line up / down"
             :rules [
                 [:!CTOSg :!Sup_arrow]
                 [:!CTOSsemicolon :!Sdown_arrow]
             ]
         }
         {
-            :des "Hyper + m / slash == left_command + left_shift + left_arrow / right_arrow"
+            :des "hyper + m / slash -> select to begin / end of line"
             :rules [
                 [:!CTOSm :!CSleft_arrow]
                 [:!CTOSslash :!CSright_arrow]
             ]
         }
         {
-            :des "Hyper + comma / period == left_shift + left_option + left arrow / right_arrow"
+            :des "hyper + comma / period -> select by word (left / right)"
             :rules [
                 [:!CTOScomma :!SOleft_arrow]
                 [:!CTOSperiod :!SOright_arrow]
             ]
         }
         {
-            :des "Hyper + delete_or_backspace == left_control + left_command + q"
+            :des "hyper + backspace -> lock screen"
             :rules [
                 [:!CTOSdelete_or_backspace :!TCq]
             ]
         }
         {
-            :des "[internal_keyboard] eject == left_control + left_command + q"
+            :des "hyper + c -> cancel in terminal"
             :rules [
-                :internal_keyboard
+                [:!CTOSc :!Tc]
+            ]
+        }
+        {
+            :des "eject -> lock screen"
+            :rules [
                 [:##eject :!TCq]
             ]
         }
         {
-            :des "[internal_keyboard] F12 == left_control + left_command + q"
+            :des "f12 -> lock screen"
             :rules [
-                :internal_keyboard
                 [:##f12 :!TCq]
             ]
         }
         {
-            :des "[internal_keyboard] delete_forward == left_control + left_command + q"
+            :des "delete_forward -> lock screen"
             :rules [
-                :internal_keyboard
                 [:delete_forward :!TCq]
             ]
         }
         {
-            :des "[internal_keyboard] layer_1 -> Numbers" 
+            :des "layer_1 (a): numbers" 
             :rules [
                 :layer_1
                 [:##u :1]
@@ -133,7 +131,7 @@
             ]
         }
         {
-            :des "[internal_keyboard] layer_2 -> Symbols + Shortcuts"
+            :des "layer_2 (f / semicolon): symbols & shortcuts"
             :rules [
                 :layer_2_1
                 [:##tab :!Sgrave_accent_and_tilde]
@@ -173,20 +171,19 @@
                 [:##o :!S9]
                 [:##p :!S0]
                 [:##caps_lock :grave_accent_and_tilde]
+                [:##left_control :grave_accent_and_tilde]
                 [:##right_command :!Sbackslash]
             ]
         }
         {
-            :des "[internal_keyboard] left_shift == right_shift"
+            :des "remap left_shift to right_shift"
             :rules [
-                :internal_keyboard
                 [:left_shift :right_shift]
             ]
         }
         {
-            :des "[internal_keyboard] quote == return_or_enter"
+            :des "remap quote to enter"
             :rules [
-                :internal_keyboard
                 [:quote :return_or_enter]
                 [:!CTOSquote :!CTOSreturn_or_enter]
                 [:!Rquote :!Rreturn_or_enter]
@@ -195,17 +192,15 @@
             ]
         }
         {
-            :des "[internal_keyboard] right_command == backslash"
+            :des "remap right_cmd to backslash"
             :rules [
-                :internal_keyboard
                 [:right_command :backslash]
                 [:!Rright_command :!Sbackslash]
             ]
         }
         {
-            :des "[internal_keyboard] open_bracket == delete_or_backspace"
+            :des "remap open_bracket to backspace"
             :rules [
-                :internal_keyboard
                 [:open_bracket :delete_or_backspace]
                 [:!Copen_bracket :!Cdelete_or_backspace]
                 [:!Ropen_bracket :!Shyphen]
@@ -213,17 +208,15 @@
             ]
         }
         {
-            :des "[internal_keyboard] right_shift == quote"
+            :des "remap right_shift to quote"
             :rules [
-                :internal_keyboard
                 [:right_shift :quote]
                 [:!Rright_shift :!Squote]
             ]
         }
         {
-            :des "[internal_keyboard] Disable unused keys"
+            :des "disable unused keys"
             :rules [
-                :internal_keyboard
                 [:escape :vk_none]
                 [:f1 :vk_none]
                 [:f2 :vk_none]
