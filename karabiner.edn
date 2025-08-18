@@ -4,7 +4,7 @@
             :default true
             :alone 150
             :held 150
-            :delay 200
+            :delay 0
             :sim 30
         }
     }
