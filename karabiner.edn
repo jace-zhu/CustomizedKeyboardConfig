@@ -30,12 +30,7 @@
                 [:##left_control :!CTOleft_shift nil {:alone :escape}]
             ]
         }
-        {
-            :des "right_shift + backspace -> underscore(_)"
-            :rules [
-                [:!Rdelete_or_backspace :!Shyphen]
-            ]
-        }
+
         {
             :des "hyper + h / j / k / l -> arrows (left / down / up / right)"
             :rules [
@@ -181,16 +176,7 @@
                 [:left_shift :right_shift]
             ]
         }
-        {
-            :des "remap quote to enter"
-            :rules [
-                [:quote :return_or_enter]
-                [:!CTOSquote :!CTOSreturn_or_enter]
-                [:!Rquote :!Rreturn_or_enter]
-                [:!Cquote :!Creturn_or_enter]
-                [:!TOquote :!TOreturn_or_enter]
-            ]
-        }
+
         {
             :des "remap right_cmd to backslash"
             :rules [
@@ -198,22 +184,15 @@
                 [:!Rright_command :!Sbackslash]
             ]
         }
+
+
         {
-            :des "remap open_bracket to backspace"
+            :des "remap left_shift + open_bracket to underscore"
             :rules [
-                [:open_bracket :delete_or_backspace]
-                [:!Copen_bracket :!Cdelete_or_backspace]
                 [:!Ropen_bracket :!Shyphen]
-                [:!CTOSopen_bracket :!TCq]
             ]
         }
-        {
-            :des "remap right_shift to quote"
-            :rules [
-                [:right_shift :quote]
-                [:!Rright_shift :!Squote]
-            ]
-        }
+
         {
             :des "disable unused keys"
             :rules [
@@ -242,10 +221,9 @@
                 [:0 :vk_none]
                 [:hyphen :vk_none]
                 [:equal_sign :vk_none]
-                [:delete_or_backspace :vk_none]
+                [:open_bracket :vk_none]
                 [:close_bracket :vk_none]
                 [:backslash :vk_none]
-                [:return_or_enter :vk_none]
             ]
         }
     ]
